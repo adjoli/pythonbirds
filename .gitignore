@@ -1,3 +1,5 @@
+.gitignore
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -6,6 +8,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+venv/
 .Python
 env/
 bin/
@@ -52,4 +55,3 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
-

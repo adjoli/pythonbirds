@@ -1,5 +1,5 @@
 class Pessoa:
-    def __init__(self, *filhos, nome=None, idade=41):
+    def __init__(self, *filhos, nome=None, idade=0):
         self.nome = nome
         self.idade = idade
         self.filhos = list(filhos)
@@ -18,8 +18,6 @@ class Pessoa:
         return txtSaida
 
 
-
-
 if __name__ == '__main__':
     filhos = [('Arthur', 7), ('Alice', 0)]
 
@@ -29,3 +27,15 @@ if __name__ == '__main__':
         pai.filhos.append(Pessoa(nome=filho[0], idade=filho[1]))
 
     print(pai)
+
+    # O atributo __dict__ lista todos os atributos de instancia de um objeto.
+
+    # Imprimindo o objeto ANTES da criacao de um atributo de instancia
+    print(pai.__dict__)
+
+    # Criando um atributo booleano 'casado' no objeto 'pai'
+    # (esse atributo nao existe em outros objetos da classe Pessoa
+    pai.casado = True
+
+    # Imprimindo novamente os atributos de instancia
+    print(pai.__dict__)
