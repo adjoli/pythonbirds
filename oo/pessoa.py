@@ -1,21 +1,31 @@
 class Pessoa:
-    def __init__(self, nome=None, idade=41):
+    def __init__(self, *filhos, nome=None, idade=41):
         self.nome = nome
         self.idade = idade
+        self.filhos = list(filhos)
 
     def cumprimentar(self):
         return f"Ola {id(self)}"
 
     def __repr__(self):
-        return f"{self.nome} tem {self.idade} anos"
+        txtSaida = f"Meu nome é {self.nome} e tenho {self.idade} anos"
+
+        if self.filhos:
+            txtSaida = txtSaida + f"\nTenho {len(self.filhos)} filhos:"
+            for filho in self.filhos:
+                txtSaida = txtSaida + f"\n==> {filho}"
+
+        return txtSaida
+
+
 
 
 if __name__ == '__main__':
-    p1 = Pessoa('Xico')
-    p2 = Pessoa('Arthur', 7)
-    print(Pessoa.cumprimentar(p1))
-    print(p1.cumprimentar())
-    print(id(p1))
+    filhos = [('Arthur', 7), ('Alice', 0)]
 
-    print(p1)
-    print(p2)
+    pai = Pessoa(nome='Adao Oliveira', idade=41)
+
+    for filho in filhos:
+        pai.filhos.append(Pessoa(nome=filho[0], idade=filho[1]))
+
+    print(pai)
