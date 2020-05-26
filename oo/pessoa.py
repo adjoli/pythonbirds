@@ -1,4 +1,8 @@
 class Pessoa:
+    """Implementação de uma classe que modela uma pessoa"""
+
+    temDeficiencia = False    # atributo de classe
+
     def __init__(self, *filhos, nome=None, idade=0):
         self.nome = nome
         self.idade = idade
@@ -22,6 +26,7 @@ if __name__ == '__main__':
     filhos = [('Arthur', 7), ('Alice', 0)]
 
     pai = Pessoa(nome='Adao Oliveira', idade=41)
+    mae = Pessoa(nome='Poliana Carlos', idade=39)
 
     for filho in filhos:
         pai.filhos.append(Pessoa(nome=filho[0], idade=filho[1]))
@@ -39,3 +44,15 @@ if __name__ == '__main__':
 
     # Imprimindo novamente os atributos de instancia
     print(pai.__dict__)
+
+    mae.filhos = pai.filhos.copy()
+    mae.temDeficiencia = True
+    print(mae)
+
+    print(pai.__dict__)
+    print(mae.__dict__)
+
+    print(pai.temDeficiencia)
+    print(mae.temDeficiencia)
+
+
