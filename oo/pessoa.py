@@ -52,6 +52,7 @@ if __name__ == '__main__':
     print(pai.__dict__)
     print(mae.__dict__)
 
+    # teste
     print(pai.temDeficiencia)
     print(mae.temDeficiencia)
 
