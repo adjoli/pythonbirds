@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class Pessoa:
     """Implementação de uma classe que modela uma pessoa"""
 
@@ -22,10 +24,14 @@ class Pessoa:
         return txtSaida
 
 
+class Homem(Pessoa):
+    pass
+
+
 if __name__ == '__main__':
     filhos = [('Arthur', 7), ('Alice', 0)]
 
-    pai = Pessoa(nome='Adao Oliveira', idade=41)
+    pai = Homem(nome='Adao Oliveira', idade=41)
     mae = Pessoa(nome='Poliana Carlos', idade=39)
 
     for filho in filhos:
