@@ -137,6 +137,7 @@ class Direcao:
 # ------------------------------------------------------------------
 
 class Carro:
+    """Implementacao da classe Carro, e suas classe agregadas Motor e Direcao"""
     def __init__(self, motor, direcao):
         self._motor = motor
         self._direcao = direcao
