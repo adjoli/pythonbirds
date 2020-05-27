@@ -106,7 +106,8 @@ class Motor:
 
     @velocidade.setter
     def velocidade(self, vel):
-        self._velocidade = 0 if vel < 0 else vel
+        # Se velocidade for negativa, velocidade recebe 0
+        self._velocidade = max(0, vel)
 
     def acelerar(self):
         self.velocidade += 1
@@ -127,14 +128,10 @@ class Direcao:
         return self._valores[self._cursor]
 
     def girar_a_direita(self):
-        self._cursor += 1
-        if self._cursor == len(self._valores):
-            self._cursor = 0
+        self._cursor = (self._cursor + 1) % len(self._valores)
 
     def girar_a_esquerda(self):
-        self._cursor -= 1
-        if self._cursor < 0:
-            self._cursor = len(self._valores)-1
+        self._cursor = (self._cursor - 1) % len(self._valores)
 
 
 # ------------------------------------------------------------------
