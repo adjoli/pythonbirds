@@ -11,7 +11,7 @@ class Pessoa:
         self.filhos = list(filhos)
 
     def cumprimentar(self):
-        return f"Ola {id(self)}"
+        return f"Ola, meu nome é {self.nome}"
 
     def __repr__(self):
         txtSaida = f"Meu nome é {self.nome} e tenho {self.idade} anos"
@@ -25,7 +25,8 @@ class Pessoa:
 
 
 class Homem(Pessoa):
-    pass
+    def cumprimentar(self):
+        return f"{super().cumprimentar()}. Aperto de mão"
 
 
 if __name__ == '__main__':
@@ -61,5 +62,8 @@ if __name__ == '__main__':
     # teste
     print(pai.temDeficiencia)
     print(mae.temDeficiencia)
+
+    print(pai.cumprimentar())
+    print(mae.cumprimentar())
 
 
