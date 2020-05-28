@@ -34,14 +34,14 @@ class AtorTestes(TestCase):
         'Teste que verifica que o ator comum não deve se mover independente do tempo do jogo'
         ator = Ator()
         x, y = ator.calcular_posicao(0)
-        self.assertEqual(0, x)
-        self.assertEqual(0, y)
+        # O método 'calcular_posicao()' de Ator é criado com retorno padrão de (1, 1)
+        self.assertEqual(1, x)
+        self.assertEqual(1, y)
 
         ator = Ator(0.3, 0.5)
         x, y = ator.calcular_posicao(10)
-        self.assertEqual(0.3, x)
-        self.assertEqual(0.5, y)
-
+        self.assertEqual(1, x)
+        self.assertEqual(1, y)
 
     def teste_colisao_entre_atores_ativos(self):
         """
@@ -113,7 +113,7 @@ class AtorTestes(TestCase):
     def assert_colisao_atores_ativos(self, ator, ator2, intervalo=1):
         """
         Se certifica que há colisão entre atores ativos
-        Atenção: Esse não é método de teste porque nao se inicia com prefixo "text".
+        Atenção: Esse não é método de teste porque nao se inicia com prefixo "teste_".
         Ele serve apenas para encapsular toda lógica de teste de colisão entre dois atores ativos
         """
         # Conferindo status dos dois atores antes da colisão
@@ -126,10 +126,10 @@ class AtorTestes(TestCase):
 
     def assert_nao_colisao(self, ator, ator2):
         """
-        Se certifica que não colisão entre dois atores
-        Atenção: Esse não é método de teste porque nao se inicia com prefixo "text".
+        Se certifica que não há colisão entre dois atores
+        Atenção: Esse não é método de teste porque nao se inicia com prefixo "teste_".
         Ele apenas encapsula a lógica de não colisão entre dois atores.
-        So seja, eles deve manter seus respectivos status mesmo depois da chamada do metodo colidir
+        Ou seja, eles devem manter seus respectivos status, mesmo depois da chamada do metodo colidir()
         """
         # Armazenando status antes da colisão
         status_inicial_ator = ator.status

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-
 import math
 
 DESTRUIDO = 'Destruido'
@@ -46,14 +45,22 @@ class Ator():
         Só deve haver colisão se os dois atores tiverem seus status ativos.
         Para colisão, é considerado um quadrado, com lado igual ao parâmetro intervalo, em volta do ponto onde se
         encontra o ator. Se os atores estiverem dentro desse mesmo quadrado, seus status devem ser alterados para
-        destruido, seus caracteres para destruido também.
+        DESTRUIDO, seus caracteres para destruido (' ') também.
 
         :param outro_ator: Ator a ser considerado na colisão
         :param intervalo: Intervalo a ser considerado
         :return:
         """
-        pass
+        if self.status == DESTRUIDO or outro_ator.status == DESTRUIDO:
+            return
 
+        condicoes = [
+            abs(self.x - outro_ator.x) <= intervalo,
+            abs(self.y - outro_ator.y) <= intervalo,
+        ]
+
+        if all(condicoes):
+            self.status = outro_ator.status = DESTRUIDO
 
 
 class Obstaculo(Ator):
@@ -122,7 +129,7 @@ class Passaro(Ator):
 
     def lancar(self, angulo, tempo_de_lancamento):
         """
-        Lógica que lança o pássaro. Deve armazenar o ângulo e o tempo de lançamento para posteriores cálculo.
+        Lógica que lança o pássaro. Deve armazenar o ângulo e o tempo de lançamento para posterior cálculo.
         O ângulo é passado em graus e deve ser transformado em radianos
 
         :param angulo:
